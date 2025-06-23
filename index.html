@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gaden Digitech - Admin Login</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="login-container">
+    <img src="22.png" alt="Gaden Logo" class="logo" />
+    <h1>Gaden Digitech Admin Login</h1>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required />
+      <div style="position:relative;">
+        <input type="password" id="password" placeholder="Password" required style="width:100%;" />
+        <button type="button" id="togglePassword" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer;">
+          <span id="eyeIcon">&#128065;</span>
+        </button>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <p>
+      <a href="#" id="forgotPasswordLink">Forgot password?</a>
+    </p>
+    <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+

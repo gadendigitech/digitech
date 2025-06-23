@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gaden Digitech - Stock Management</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <header>
+    <img src="22.png" alt="Logo" class="logo" />
+    <h1>Stock Management</h1>
+    <button id="logoutBtn">Logout</button>
+  </header>
+
+  <main>
+    <!-- Product Categories -->
+    <section class="categories">
+      <h2>Product Categories</h2>
+      <button class="category-btn" data-category="Modio">Modio</button>
+      <button class="category-btn" data-category="Oteeto">Oteeto</button>
+      <button class="category-btn" data-category="Notebook 10">Notebook 10</button>
+      <button class="category-btn" data-category="Bebe">Bebe</button>
+      <button class="category-btn" data-category="Tablets">Tablets</button>
+      
+      <div class="dropdown">
+        <button class="category-btn">Phones</button>
+        <div class="dropdown-content">
+          <button class="subcategory-btn" data-subcategory="redmi">Redmi</button>
+          <button class="subcategory-btn" data-subcategory="tecno">Tecno</button>
+          <button class="subcategory-btn" data-subcategory="infinix">Infinix</button>
+          <button class="subcategory-btn" data-subcategory="oppo">Oppo</button>
+          <button class="subcategory-btn" data-subcategory="samsung">Samsung</button>
+          <button class="subcategory-btn" data-subcategory="vivo">Vivo</button>
+        </div>
+      </div>
+      
+      <button class="category-btn" data-category="All">All</button>
+    </section>
+
+    <!-- Stock Section -->
+    <section id="stockSection">
+      <h2>Stock</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Barcode</th>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Subcategory</th>
+            <th>Description</th>
+            <th>Cost Price (KSH)</th>
+            <th>Selling Price (KSH)</th>
+            <th>Stock Qty</th>
+          </tr>
+        </thead>
+        <tbody id="stockTableBody"></tbody>
+      </table>
+      <button id="addProductBtn">Add New Product</button>
+    </section>
+
+    <!-- Add/Edit Product Form -->
+    <section id="addProductSection" style="display:none;">
+      <h2 id="formTitle">Add New Product</h2>
+      <form id="addProductForm">
+        <input type="text" id="stockBarcode" placeholder="Scan barcode" autofocus>
+        <input type="text" id="prodBarcode" placeholder="Barcode (unique)" required />
+        <input type="text" id="prodName" placeholder="Product Name" required />
+        <select id="prodCategory" required>
+          <option value="">Select Category</option>
+          <option value="Modio">Modio</option>
+          <option value="Oteeto">Oteeto</option>
+          <option value="Notebook 10">Notebook 10</option>
+          <option value="Bebe">Bebe</option>
+          <option value="Tablets">Tablets</option>
+          <option value="Phones">Phones</option>
+        </select>
+        <select id="prodSubcategory"style="display:none;">
+          <option value="">Select Subcategory</option>
+          <option value="redmi">Redmi</option>
+          <option value="tecno">Tecno</option>
+          <option value="infinix">Infinix</option>
+          <option value="oppo">Oppo</option>
+          <option value="samsung">Samsung</option>
+          <option value="vivo">Vivo</option>
+        </select>
+        <input type="text" id="prodDescription" placeholder="Description" />
+        <input type="number" id="prodCostPrice" placeholder="Cost Price" min="0" required />
+        <input type="number" id="prodSellingPrice" placeholder="Selling Price" min="0" required />
+        <input type="number" id="prodStockQty" placeholder="Stock Quantity" min="0" required />
+        <button type="submit" id="formSubmitBtn">Add Product</button>
+        <button type="button" id="cancelBtn">Cancel</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="stock.js"></script>
+</body>
+</html>
